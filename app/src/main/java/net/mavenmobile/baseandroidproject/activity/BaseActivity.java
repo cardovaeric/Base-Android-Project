@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatDelegate;
 
 import com.hwangjr.rxbus.RxBus;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 /**
  * Created by Cardova on 9/18/16.
  */
@@ -28,7 +30,7 @@ public class BaseActivity extends AppCompatActivity
     }
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(newBase);
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     @Override

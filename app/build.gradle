@@ -3,7 +3,6 @@ apply plugin: 'android-apt'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
-
     defaultConfig {
         applicationId "net.mavenmobile.baseandroidproject"
         minSdkVersion 17
@@ -17,8 +16,28 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField "String", 'BASE_URL', '""'
         }
-        debug{
+        debug {
             buildConfigField "String", 'BASE_URL', '""'
+        }
+    }
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/layout/activity',
+                            'src/main/res/layout/fragment',
+                            'src/main/res/layout/dialog',
+                            'src/main/res/layout/item',
+                            'src/main/res'
+                    ]
+        }
+    }
+    productFlavors {
+        BCA {
+            applicationId 'net.mavenmobile.bca'
+        }
+        MANDIRI {
+            applicationId 'net.mavenmobile.mandiri'
         }
     }
 }
@@ -46,4 +65,5 @@ dependencies {
     //Butterknife
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.jakewharton:butterknife:8.4.0'
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
 }
